@@ -9,6 +9,9 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh',  'eslint-plugin-import', '@typescript-eslint'],
+  parserOptions: {
+    project: './tsconfig.json',
+  },
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -83,7 +86,17 @@ module.exports = {
         leadingUnderscore: 'allow',
         trailingUnderscore: 'allow',
       },
-
+      {
+        selector: ['import'],
+        format: ['camelCase', 'PascalCase'],
+        leadingUnderscore: 'allow',
+      },
+      {
+        selector: 'function',
+        format: ['PascalCase'],
+        leadingUnderscore: 'allow',
+        trailingUnderscore: 'allow',
+      },
       {
         selector: ['enum'],
         format: ['PascalCase'],
