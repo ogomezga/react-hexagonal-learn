@@ -9,18 +9,15 @@ import Navbar from '../ui/navbar/navbar.tsx';
 function AppRoutes() {
     return (
         <Router>
-            <div className="app">
-                <Navbar/>
-                <div className="content">
-                    <Routes>
-                        <Route path="/" element={<GlobalScreen/>}/>
-                        <Route path="/public" element={<Public/>}/>
-                        <Route path="/desktop" element={<Desktop/>}/>
-                        <Route path="/newTicket" element={<NewTicket/>}/>
-                    </Routes>
-                </div>
-            </div>
             <Navbar/>
+            <div className="content">
+                <Routes>
+                    <Route path="/" element={<GlobalScreen/>}/>
+                    <Route path="/public" element={<Public/>}/>
+                    <Route path="/desktop" element={<Desktop/>}/>
+                    <Route path="/newTicket" element={<NewTicket/>}/>
+                </Routes>
+            </div>
         </Router>
     );
 }
