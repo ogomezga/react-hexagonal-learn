@@ -1,21 +1,28 @@
-table {
-    width: 100%;
-    height: 100%;
-    text-align: center;
+.table-tickets {
+    display: flex;
+    height: 100vh;
+    font-size: 22px;
 }
 
-.ticket-actual {
-    background-color: #282828;
+.current-ticket {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75vh;
+    gap: 4px;
+    font-size: 48px;
 }
 
-.ticket-actual-numero {
-    font-size: 80px;
+.next-tickets {
+    background-color: #6951F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-.ticket-actual-escritorio {
-    font-size: 45px;
-}
-
-.ticket-secundario {
-    font-size: 25px;
+.next-tickets > div {
+    display: flex;
+    flex-direction: column;
+    width: 20vh;
+    gap: 4px;
 }
