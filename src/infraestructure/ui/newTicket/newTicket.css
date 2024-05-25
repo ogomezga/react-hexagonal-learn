@@ -1,0 +1,26 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+#lblNuevoTicket {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #646cff;
+    font-size: xxx-large;
+    width: 100%;
+}
+
+#btnCrear {
+    display: flex;
+    justify-content: center;
+    width: 25vh;
+}
+
+#btnCrear:hover {
+    color: #646cff;
+}

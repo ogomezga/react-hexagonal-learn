@@ -1,22 +1,14 @@
+import './newTicket.css';
+
 function NewTicket() {
     return (
         <>
-            <table>
-                <tr>
-                    <td>
-                <span id="lblNuevoTicket">
-                    Cargando...
-                </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button id="btnCrear">
-                            Generar nuevo ticket
-                        </button>
-                    </td>
-                </tr>
-            </table>
+            <span id="lblNuevoTicket">
+                Cargando...
+            </span>
+            <button id="btnCrear">
+                Generar nuevo ticket
+            </button>
         </>
     );
 }
