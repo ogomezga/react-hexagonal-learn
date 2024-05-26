@@ -4,6 +4,7 @@ import {
     asFunction,
 } from 'awilix';
 import useCreateNewTicket from '../useCases/useCreateNewTicket.ts';
+import useDisplayTickets from '../useCases/useDisplayTickets.ts';
 
 
 let container: AwilixContainer;
@@ -20,6 +21,7 @@ export function getMainContainer() {
          * That's why it should be registered as an implementation of a function.
          */
         useCreateNewTicket: asFunction(() => useCreateNewTicket).singleton(),
+        useDisplayTickets: asFunction(() => useDisplayTickets).singleton(),
     });
 
     return container;
