@@ -93,7 +93,7 @@ module.exports = {
       },
       {
         selector: 'function',
-        format: ['PascalCase'],
+        format: ['camelCase', 'PascalCase'],
         leadingUnderscore: 'allow',
         trailingUnderscore: 'allow',
       },
