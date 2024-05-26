@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
+import {Ticket} from '../domain/ticket.ts';
 
-export default function useCreateNewTicket() {
+type CreateNewTicketResponse = {
+    lblNewTicket: string;
+    btnCreateDisabled: boolean;
+    createNewTicket: () => void;
+};
+
+export default function useCreateNewTicket(): CreateNewTicketResponse {
     const [lblNewTicket, setLblNewTicket] = useState('Cargando...');
     const [btnCreateDisabled, setBtnCreateDisabled] = useState(false);
     const [socket, setSocket] = useState<Socket | null>(null);
@@ -12,26 +19,26 @@ export default function useCreateNewTicket() {
         });
         setSocket(newSocket);
 
-        newSocket.on('connect', () => {
+        newSocket.on('connect', (): void => {
             setBtnCreateDisabled(false);
         });
 
-        newSocket.on('disconnect', () => {
+        newSocket.on('disconnect', (): void => {
             setBtnCreateDisabled(true);
         });
 
-        newSocket.on('ultimo-ticket', (lastTicket: string) => {
+        newSocket.on('ultimo-ticket', (lastTicket: string): void => {
             setLblNewTicket('Ticket ' + lastTicket);
         });
 
-        return () => {
+        return (): void => {
             newSocket.disconnect();
         };
     }, []);
 
-    const createNewTicket = () => {
+    const createNewTicket = (): void => {
         if (socket) {
-            socket.emit('siguiente-ticket', null, (ticket: { numb: string }) => {
+            socket.emit('siguiente-ticket', null, (ticket: Ticket) => {
                 setLblNewTicket('Ticket ' + ticket.numb);
             });
         }
